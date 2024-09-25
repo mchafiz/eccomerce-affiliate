@@ -1,4 +1,4 @@
-import { bebasSans } from "@/app/layout";
+import bebasSans from "@/app/utils/bebasnueue";
 import {
   Accordion,
   AccordionContent,

@@ -1,12 +1,5 @@
-import { Bebas_Neue, Roboto } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
-
-export const bebasSans = Bebas_Neue({
-  weight: ["400"],
-  style: "normal",
-  display: "swap",
-  subsets: ["latin"], // Specify the available subsets
-});
 
 const roboto = Roboto({
   weight: ["400", "500"],

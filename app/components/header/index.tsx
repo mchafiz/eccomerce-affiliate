@@ -1,5 +1,5 @@
 "use client";
-import { bebasSans } from "@/app/layout";
+import bebasSans from "@/app/utils/bebasnueue";
 import Image from "next/image";
 import {
   MdMenu,
