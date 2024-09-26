@@ -17,12 +17,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${roboto.className} antialiased`}>
         <div
-          className="flex justify-center h-screen px-0 lg:px-8 bg-repeat"
+          className="flex justify-center px-0 lg:px-8 bg-repeat"
           style={{
             backgroundImage: "url('/img/background.png')",
           }}
         >
-          <div className="w-full max-w-5xl lg:max-w-[80rem]">{children}</div>
+          <div className="w-full max-w-5xl">{children}</div>
         </div>
       </body>
     </html>
