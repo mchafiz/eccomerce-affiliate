@@ -13,7 +13,7 @@ const HeaderFilter = () => {
       <p className="text-sm text-textPrimary">302 products</p>
       <Select>
         <SelectTrigger className="w-[90px] px-2 m-0 h-8 bg-transparent border-0">
-          <SelectValue placeholder="5 Products" />
+          <SelectValue placeholder="Show 5" />
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>

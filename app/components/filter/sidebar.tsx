@@ -11,8 +11,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 const SidebarFilter = ({ isSheet }: { isSheet: boolean }) => {
   if (isSheet) {
     return (
-      <div className="w-full">
-        <div className="flex flex-row items-center justify-between">
+      <div className="w-full flex flex-col items-start w-full ">
+        <div className="flex flex-row items-center justify-between w-full">
           <h2 className={`text-2xl ${bebasSans.className} text-textPrimary`}>
             FILTER BY
           </h2>
@@ -39,8 +39,8 @@ const SidebarFilter = ({ isSheet }: { isSheet: boolean }) => {
             </svg>
           </button>
         </div>
-        <hr className=" my-0 bg-gray-600 border-0 h-[1.4px] mt-2" />
-        <Accordion type="single" collapsible>
+        <hr className=" my-0 bg-gray-600 border-0 h-[1.4px] mt-2 w-full" />
+        <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-textPrimary">
               <span
@@ -73,7 +73,7 @@ const SidebarFilter = ({ isSheet }: { isSheet: boolean }) => {
           </AccordionItem>
         </Accordion>
 
-        <Accordion type="single" collapsible>
+        <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-textPrimary">
               <span
@@ -106,7 +106,7 @@ const SidebarFilter = ({ isSheet }: { isSheet: boolean }) => {
           </AccordionItem>
         </Accordion>
 
-        <Accordion type="single" collapsible>
+        <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-textPrimary">
               <span
