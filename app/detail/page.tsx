@@ -11,7 +11,7 @@ const Detail = () => {
   const sizes = ["S", "M", "L", "XL"];
   return (
     <div>
-      <Header isDetail />
+      <Header isDetail menus={[]} />
       <div className="bg-bgCustom p-4 border-gray-600 w-full min-h-screen">
         <div className="grid grid-cols-12  mx-4 mt-8 gap-8">
           <div className="col-span-12 lg:col-span-4">
