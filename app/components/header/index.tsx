@@ -6,17 +6,16 @@ import { MdOutlineFavoriteBorder } from "react-icons/md";
 import SheetMenu from "../sheetMenu/index";
 import InfoMenu from "./infoMenu";
 
-const Header = ({ isDetail }: { isDetail: boolean }) => {
+
+export default function Header({
+  isDetail,
+  menus,
+}: {
+  isDetail: boolean;
+  menus: Array<{ id: number; title: string }>;
+}) {
   const [menu, setMenu] = useState("Sprayers");
   const router = useRouter();
-
-  const menus = [
-    "Sprayers",
-    "Lawn & Garden Solutions",
-    "Growing Solutions",
-    "Cleaning Solutions",
-    "Concrete Solutions",
-  ];
 
   return (
     <div>
@@ -42,16 +41,18 @@ const Header = ({ isDetail }: { isDetail: boolean }) => {
           {menus.map((menuitem) => {
             return (
               <p
-                key={menuitem}
+                key={menuitem.title}
                 className={`text-sm text-textPrimary font-medium  cursor-pointer hover:text-textSecondary hover:font-medium  ${
-                  menu === menuitem ? "text-textSecondary" : "text-textPrimary "
+                  menu === menuitem.title
+                    ? "text-textSecondary"
+                    : "text-textPrimary "
                 }`}
                 onClick={() => {
-                  setMenu(menuitem);
+                  setMenu(menuitem.title);
                   router.push("/");
                 }}
               >
-                {menuitem}
+                {menuitem.title}
               </p>
             );
           })}
@@ -68,4 +69,3 @@ const Header = ({ isDetail }: { isDetail: boolean }) => {
   );
 };
 
-export default Header;

@@ -4,7 +4,7 @@ const InfoMenu = ({ menu }: { menu: string }) => {
   return (
     <div>
       <p
-        className={`text-textPrimary font-extrabold text-8xl text-center my-10 ${bebasSans.className}`}
+        className={`text-textPrimary font-extrabold text-8xl text-center my-9 ${bebasSans.className}`}
       >
         {menu}
       </p>

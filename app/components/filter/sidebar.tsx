@@ -142,7 +142,7 @@ const SidebarFilter = ({ isSheet }: { isSheet: boolean }) => {
     );
   }
   return (
-    <aside className="col-span-3 text-white p-4 border-r-[1.5px] border-r-gray-600  overflow-y-auto max-h-full hidden lg:block">
+    <aside className="col-span-3 text-white p-4 border-r-[1.5px] border-r-gray-600 overflow-y-auto h-screen hidden lg:block">
       <div className="flex flex-row items-center justify-between">
         <h2 className={`text-2xl ${bebasSans.className} text-textPrimary`}>
           FILTER BY
@@ -171,98 +171,121 @@ const SidebarFilter = ({ isSheet }: { isSheet: boolean }) => {
         </button>
       </div>
       <hr className=" my-0 bg-gray-600 border-0 h-[1.4px] mt-2" />
-      <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
-          <AccordionTrigger className="text-textPrimary">
-            <span className={`${bebasSans.className} text-textPrimary text-xl`}>
-              BRAND
-            </span>
-          </AccordionTrigger>
-          <AccordionContent className="text-textPrimary">
-            <RadioGroup defaultValue="comfortable">
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="default" id="r1" />
-                <Label htmlFor="r1">PetraTools</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="comfortable" id="r2" />
-                <Label htmlFor="r2">PetraGrow</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="compact" id="r3" />
-                <Label htmlFor="r3">PetraMax</Label>
-              </div>
+      <div className="flex flex-col items-start justify-start w-full max-h-96 overflow-y-auto overflow-x-hidden pr-2">
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full"
+          defaultChecked={true}
+        >
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="text-textPrimary">
+              <span
+                className={`${bebasSans.className} text-textPrimary text-xl`}
+              >
+                BRAND
+              </span>
+            </AccordionTrigger>
+            <AccordionContent className="text-textPrimary">
+              <RadioGroup defaultValue="comfortable">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="default" id="r1" />
+                  <Label htmlFor="r1">PetraTools</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="comfortable" id="r2" />
+                  <Label htmlFor="r2">PetraGrow</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="compact" id="r3" />
+                  <Label htmlFor="r3">PetraMax</Label>
+                </div>
 
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="compact" id="r3" />
-                <Label htmlFor="r3">PetraProtect</Label>
-              </div>
-            </RadioGroup>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="compact" id="r3" />
+                  <Label htmlFor="r3">PetraProtect</Label>
+                </div>
+              </RadioGroup>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
 
-      <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
-          <AccordionTrigger className="text-textPrimary">
-            <span className={`${bebasSans.className} text-textPrimary text-xl`}>
-              TYPE
-            </span>
-          </AccordionTrigger>
-          <AccordionContent className="text-textPrimary">
-            <RadioGroup defaultValue="comfortable">
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="default" id="r1" />
-                <Label htmlFor="r1">Foggers</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="comfortable" id="r2" />
-                <Label htmlFor="r2">Backpack Sprayers</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="compact" id="r3" />
-                <Label htmlFor="r3">Growing Solutions</Label>
-              </div>
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full"
+          defaultChecked={true}
+        >
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="text-textPrimary">
+              <span
+                className={`${bebasSans.className} text-textPrimary text-xl`}
+              >
+                TYPE
+              </span>
+            </AccordionTrigger>
+            <AccordionContent className="text-textPrimary">
+              <RadioGroup defaultValue="comfortable">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="default" id="r1" />
+                  <Label htmlFor="r1">Foggers</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="comfortable" id="r2" />
+                  <Label htmlFor="r2">Backpack Sprayers</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="compact" id="r3" />
+                  <Label htmlFor="r3">Growing Solutions</Label>
+                </div>
 
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="compact" id="r3" />
-                <Label htmlFor="r3">Cart Sprayers</Label>
-              </div>
-            </RadioGroup>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="compact" id="r3" />
+                  <Label htmlFor="r3">Cart Sprayers</Label>
+                </div>
+              </RadioGroup>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
 
-      <Accordion type="single" collapsible>
-        <AccordionItem value="item-1">
-          <AccordionTrigger className="text-textPrimary">
-            <span className={`${bebasSans.className} text-textPrimary text-xl`}>
-              CAPACITY
-            </span>
-          </AccordionTrigger>
-          <AccordionContent className="text-textPrimary">
-            <RadioGroup defaultValue="comfortable">
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="default" id="r1" />
-                <Label htmlFor="r1">1 Galon</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="comfortable" id="r2" />
-                <Label htmlFor="r2">2 Galon</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="compact" id="r3" />
-                <Label htmlFor="r3">3 Galon</Label>
-              </div>
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full"
+          defaultChecked={true}
+        >
+          <AccordionItem value="item-1">
+            <AccordionTrigger className="text-textPrimary">
+              <span
+                className={`${bebasSans.className} text-textPrimary text-xl`}
+              >
+                CAPACITY
+              </span>
+            </AccordionTrigger>
+            <AccordionContent className="text-textPrimary">
+              <RadioGroup defaultValue="comfortable">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="default" id="r1" />
+                  <Label htmlFor="r1">1 Galon</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="comfortable" id="r2" />
+                  <Label htmlFor="r2">2 Galon</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="compact" id="r3" />
+                  <Label htmlFor="r3">3 Galon</Label>
+                </div>
 
-              <div className="flex items-center space-x-2">
-                <RadioGroupItem value="compact" id="r3" />
-                <Label htmlFor="r3">4 Galon</Label>
-              </div>
-            </RadioGroup>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="compact" id="r3" />
+                  <Label htmlFor="r3">4 Galon</Label>
+                </div>
+              </RadioGroup>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
     </aside>
   );
 };

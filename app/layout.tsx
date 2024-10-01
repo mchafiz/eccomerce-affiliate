@@ -22,7 +22,9 @@ export default function RootLayout({
             backgroundImage: "url('/img/background.png')",
           }}
         >
-          <div className="w-full max-w-5xl bg-bgCustom ">{children}</div>
+          <div className="w-full max-w-5xl bg-bgCustom h-screen  overflow-hidden">
+            {children}
+          </div>
         </div>
       </body>
     </html>

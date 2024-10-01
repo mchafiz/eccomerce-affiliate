@@ -6,8 +6,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { getCategories } from "@/lib/prisma";
 
-const HeaderFilter = () => {
+export default async function HeaderFilter() {
+  const categories = await getCategories();
+
   return (
     <div className="flex items-center justify-center gap-4">
       <p className="text-sm text-textPrimary">302 products</p>
@@ -30,8 +33,11 @@ const HeaderFilter = () => {
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            <SelectItem value="apple">Best Selling</SelectItem>
-            <SelectItem value="banana">Trending</SelectItem>
+            {categories.map((category) => (
+              <SelectItem key={category.id} value={category.name}>
+                {category.name}
+              </SelectItem>
+            ))}
           </SelectGroup>
         </SelectContent>
       </Select>
@@ -39,4 +45,3 @@ const HeaderFilter = () => {
   );
 };
 
-export default HeaderFilter;

@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Menus {
+  id       Int       @id @default(autoincrement())
+  title    String
+  products Products[]
+}
+
+model Products {
+  id                Int    @id @default(autoincrement()) // Unique ID for each product
+  name              String // Product name
+  price             Int    // Product price in integer
+  affiliateLink     String // Affiliate link for the product
+  brand             String // Product brand
+  description       String @default("")
+  rating            Int    // Product rating (1-5)
+  tags              String @default("")
+  menuId            Int    // Foreign key to Menus
+  menu              Menus   @relation(fields: [menuId], references: [id])
+  imageUrl          String?  // URL of the product image (optional)
+  
+
+  // Relasi many-to-many dengan Category
+  categories        Category[] @relation("ProductCategories")
+}
+
+model Category {
+  id               Int    @id @default(autoincrement()) // Unique ID for each product
+  name             String // Product name
+
+  // Relasi many-to-many dengan Products
+  products         Products[] @relation("ProductCategories")
+}
