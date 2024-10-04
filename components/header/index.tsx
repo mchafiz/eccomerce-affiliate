@@ -1,11 +1,9 @@
 "use client";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import SheetMenu from "../sheetMenu/index";
 import InfoMenu from "./infoMenu";
-
 
 export default function Header({
   isDetail,
@@ -14,8 +12,10 @@ export default function Header({
   isDetail: boolean;
   menus: Array<{ id: number; title: string }>;
 }) {
-  const [menu, setMenu] = useState("Sprayers");
   const router = useRouter();
+  const pathname = usePathname();
+  const menuFromUrl = pathname.split("/")[1];
+  const menuFixed = menuFromUrl?.replace(/\s+/g, "-").toLowerCase();
 
   return (
     <div>
@@ -34,22 +34,26 @@ export default function Header({
           width={120}
           height={30}
           className="cursor-pointer"
-          onClick={() => router.push("/")}
+          onClick={() =>
+            router.push(`/${menus[0].title.replace(/\s+/g, "-").toLowerCase()}`)
+          }
         />
 
         <div className=" hidden lg:flex flex-row items-center justify-center gap-3 pr-6 ">
           {menus.map((menuitem) => {
+            const menuDatabase = menuitem.title
+              .replace(/\s+/g, "-")
+              .toLowerCase();
             return (
               <p
                 key={menuitem.title}
                 className={`text-sm text-textPrimary font-medium  cursor-pointer hover:text-textSecondary hover:font-medium  ${
-                  menu === menuitem.title
+                  menuDatabase === menuFromUrl
                     ? "text-textSecondary"
                     : "text-textPrimary "
                 }`}
                 onClick={() => {
-                  setMenu(menuitem.title);
-                  router.push("/");
+                  router.push(`/${menuDatabase}`);
                 }}
               >
                 {menuitem.title}
@@ -64,8 +68,7 @@ export default function Header({
       </div>
       <hr className="h-px my-0 bg-gray-600 border-0 h-[1.5px]" />
 
-      {!isDetail && <InfoMenu menu={menu} />}
+      {!isDetail && <InfoMenu menu={menuFixed.replaceAll("-", " ")} />}
     </div>
   );
-};
-
+}
