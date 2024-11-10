@@ -1,4 +1,4 @@
-import { Filters } from "@/app/types";
+import { Filters } from "@/types";
 import type { Products } from "@prisma/client";
 import { create } from "zustand";
 

@@ -1,4 +1,4 @@
-import bebasSans from "@/app/utils/bebasnueue";
+import bebasSans from "@/lib/bebasnueue";
 
 const InfoMenu = ({ menu }: { menu: string }) => {
   return (

@@ -1,17 +1,16 @@
 "use client";
 
-import bebasSans from "@/app/utils/bebasnueue";
-
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../ui/accordion";
-import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
-import { Label } from "../ui/label";
-import { Checkbox } from "../ui/checkbox";
-import { useQueryParamsHook } from "@/lib/hooks/useQueryParamHook";
+} from "@/components/ui/accordion";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { useQueryParamsHook } from "@/hooks/useQueryParamHook";
+import bebasSans from "@/lib/bebasnueue";
 
 interface AsideProps {
   brands: Array<{ brand: string }>;

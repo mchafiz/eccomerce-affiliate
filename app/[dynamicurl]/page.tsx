@@ -1,8 +1,8 @@
-import HeaderFilter from "@/components/filter/header";
-import SheetSidebar from "@/components/filter/sheetSidebar";
-import SidebarFilter from "@/components/filter/sidebar";
-import Header from "@/components/header";
-import Products from "@/components/products";
+import HeaderFilter from "@/components/shared/filter/header";
+import SheetSidebar from "@/components/shared/filter/sheetSidebar";
+import Sidebar from "@/components/shared/filter/sidebar";
+import Header from "@/components/shared/header";
+import Products from "@/components/shared/products";
 import { getCategories, getMenus, getProducts } from "@/lib/prisma";
 
 export default async function Ecommerce() {
@@ -20,7 +20,7 @@ export default async function Ecommerce() {
       </div>
 
       <div className="grid grid-cols-12 min-h-screen  ">
-        <SidebarFilter isSheet={false} />
+        <Sidebar isSheet={false} />
         <Products products={products} />
       </div>
     </div>

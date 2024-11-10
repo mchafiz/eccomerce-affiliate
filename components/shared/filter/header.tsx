@@ -8,10 +8,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useProductStore } from "@/app/store";
+import { useProductStore } from "@/store";
 import { useShallow } from "zustand/react/shallow";
 import { Category } from "@prisma/client";
-import { useQueryParamsHook } from "@/lib/hooks/useQueryParamHook";
+import { useQueryParamsHook } from "@/hooks/useQueryParamHook";
 
 export default function HeaderFilter({
   categories,

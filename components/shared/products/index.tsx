@@ -1,7 +1,7 @@
 "use client";
 
-import { useProductStore } from "@/app/store";
-import bebasSans from "@/app/utils/bebasnueue";
+import bebasSans from "@/lib/bebasnueue";
+import { useProductStore } from "@/store";
 import type { Products } from "@prisma/client";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";

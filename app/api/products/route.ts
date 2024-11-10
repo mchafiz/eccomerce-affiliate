@@ -2,7 +2,7 @@
 
 import { NextResponse } from "next/server";
 import { getProducts } from "@/lib/prisma"; // Adjust the import path as needed
-import { Filters } from "@/app/types";
+import { Filters } from "@/types";
 
 export async function GET(req: Request) {
   try {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 // Define the return type for the hook
 interface UseQueryParams {
@@ -13,7 +13,6 @@ interface UseQueryParams {
 }
 
 export const useQueryParamsHook = (): UseQueryParams => {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   // Get a query parameter by key
@@ -39,12 +38,11 @@ export const useQueryParamsHook = (): UseQueryParams => {
     }
 
     // Update the URL with the new query parameters
-    router.push(`?${params.toString()}`);
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState(null, "", newUrl);
   };
 
-  // Delete a query parameter (single key)
-
-  // Delete single or multiple query parameters
+  // Delete a query parameter (single key or multiple keys)
   const deleteQueryParam = (keyOrKeys: string | string[]): void => {
     const params = new URLSearchParams(searchParams.toString());
 
@@ -57,7 +55,8 @@ export const useQueryParamsHook = (): UseQueryParams => {
     }
 
     // Update the URL without the specified query parameters
-    router.push(`?${params.toString()}`);
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    window.history.replaceState(null, "", newUrl);
   };
 
   return { getQueryParam, addQueryParam, deleteQueryParam };

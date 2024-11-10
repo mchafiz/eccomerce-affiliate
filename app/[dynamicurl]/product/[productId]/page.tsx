@@ -1,10 +1,10 @@
-import bebasSans from "@/app/utils/bebasnueue";
-import Header from "@/components/header";
+import Header from "@/components/shared/header";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { getMenus, getProduct } from "@/lib/prisma";
 import { headers } from "next/headers";
 import Image from "next/image";
 import ActionDetail from "./components/actionDetail";
+import bebasSans from "@/lib/bebasnueue";
 
 export default async function Detail() {
   const menus = await getMenus();

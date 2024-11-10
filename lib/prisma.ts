@@ -1,4 +1,4 @@
-import { Filters } from "@/app/types";
+import { Filters } from "@/types";
 import { PrismaClient } from "@prisma/client";
 
 export const prisma = new PrismaClient();

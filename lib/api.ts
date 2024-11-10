@@ -1,4 +1,4 @@
-import { Filters } from "@/app/types";
+import { Filters } from "@/types";
 
 // Utility function to convert filters to query parameters
 function createQueryStringFilter(filters: Filters): string {
