@@ -1,23 +1,14 @@
 "use client";
 
+import { useProductStore } from "@/app/store";
 import bebasSans from "@/app/utils/bebasnueue";
+import type { Products } from "@prisma/client";
 import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useShallow } from "zustand/react/shallow";
 
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  affiliateLink: string;
-  brand: string;
-  description: string;
-  rating: number;
-  tags: string;
-  menuId: number;
-  imageUrl: string | null;
-}
-
-const Products = ({ products }: { products: Array<Product> }) => {
+const Products = ({ products }: { products: Array<Products> }) => {
   const router = useRouter();
   const pathname = usePathname();
   const formatCurrency = (amount: number) => {
@@ -29,10 +20,23 @@ const Products = ({ products }: { products: Array<Product> }) => {
     }).format(amount);
   };
 
+  const { handleSetProducts, products: productsCurrent } = useProductStore(
+    useShallow((state) => ({
+      products: state.products,
+      handleSetProducts: state.handleSetProducts,
+    }))
+  );
+
+  useEffect(() => {
+    if (products.length > 0) {
+      handleSetProducts(products);
+    }
+  }, [products]);
+
   return (
     <main className="col-span-12 lg:col-span-9 max-h-full overflow-auto ">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  ">
-        {products.map((product) => (
+        {productsCurrent.map((product) => (
           <div
             onClick={() => {
               const url = `${pathname}/product/${product.name

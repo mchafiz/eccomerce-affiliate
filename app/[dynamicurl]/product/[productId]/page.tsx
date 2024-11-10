@@ -15,7 +15,12 @@ export default async function Detail() {
   // get last part of url
   const productFromUrl = headerUrl.split("/").pop() ?? "";
 
-  const product = await getProduct(productFromUrl);
+  // Replace %20 with -
+  const formattedProduct = productFromUrl.replace(/%20/g, "-");
+
+  console.log(formattedProduct);
+
+  const product = await getProduct(formattedProduct);
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat("id-ID", {
@@ -33,7 +38,7 @@ export default async function Detail() {
         <div className="grid grid-cols-12  mx-4 mt-8 gap-8">
           <div className="col-span-12 lg:col-span-4">
             <Image
-              src={`${product?.imageUrl}`}
+              src={`${product?.imageUrl ?? ""}`}
               alt={`${product?.name}`}
               width={800}
               height={800}

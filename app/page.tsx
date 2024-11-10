@@ -11,11 +11,10 @@ export default async function Main() {
   const pathname = headersList.get("x-url") || "/";
   const dynamicUrl = pathname.split("/").pop();
 
-  console.log(dynamicUrl);
   // Check if the user is on the root path
   if (!dynamicUrl) {
     // Redirect to the first menu's title
-    return redirect(`/${menus[0].title.replace(/\s+/g, "-").toLowerCase()}`);
+    return redirect(`/${menus[0]?.title?.replace(/\s+/g, "-").toLowerCase()}`);
   }
 
   // If no redirect, render component (for example)

@@ -28,18 +28,24 @@ export default function Header({
       </div>
       <hr className="h-px my-0 bg-gray-600 border-0 h-[1.5px]" />
       <div className="flex items-center justify-between px-2 py-3">
-        <Image
-          src="/img/logo.png"
-          alt="logo"
-          width={120}
-          height={30}
-          className="cursor-pointer"
-          onClick={() =>
-            router.push(`/${menus[0].title.replace(/\s+/g, "-").toLowerCase()}`)
-          }
-        />
+        {/* Logo with fixed width */}
+        <div className="flex-shrink-0 w-[120px] flex items-center">
+          <Image
+            src="/img/logo.png"
+            alt="logo"
+            width={120}
+            height={30}
+            className="cursor-pointer"
+            onClick={() =>
+              router.push(
+                `/${menus[0].title.replace(/\s+/g, "-").toLowerCase()}`
+              )
+            }
+          />
+        </div>
 
-        <div className=" hidden lg:flex flex-row items-center justify-center gap-3 pr-6 ">
+        {/* Centered menu */}
+        <div className="hidden lg:flex flex-grow items-center justify-center gap-3">
           {menus.map((menuitem) => {
             const menuDatabase = menuitem.title
               .replace(/\s+/g, "-")
@@ -47,14 +53,12 @@ export default function Header({
             return (
               <p
                 key={menuitem.title}
-                className={`text-sm text-textPrimary font-medium  cursor-pointer hover:text-textSecondary hover:font-medium  ${
+                className={`text-md font-medium cursor-pointer hover:text-textSecondary ${
                   menuDatabase === menuFromUrl
                     ? "text-textSecondary"
-                    : "text-textPrimary "
+                    : "text-textPrimary"
                 }`}
-                onClick={() => {
-                  router.push(`/${menuDatabase}`);
-                }}
+                onClick={() => router.push(`/${menuDatabase}`)}
               >
                 {menuitem.title}
               </p>
@@ -62,10 +66,12 @@ export default function Header({
           })}
         </div>
 
-        <div className="flex items-center gap-4 pr-2">
+        {/* Right icon container with the same width as the logo */}
+        <div className="flex-shrink-0 w-[120px] flex items-center justify-end gap-4 pr-2">
           <MdOutlineFavoriteBorder className="text-textPrimary" />
         </div>
       </div>
+
       <hr className="h-px my-0 bg-gray-600 border-0 h-[1.5px]" />
 
       {!isDetail && <InfoMenu menu={menuFixed.replaceAll("-", " ")} />}
