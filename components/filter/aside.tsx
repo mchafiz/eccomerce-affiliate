@@ -186,7 +186,7 @@ export default function Aside({ brands, tags, isSheet }: AsideProps) {
       const tagsCurrentBeforeChange = getQueryParam("tags") || "";
       const splitTags = tagsCurrentBeforeChange.split(",");
 
-      let newTags = splitTags.filter((tag) => tag !== value);
+      const newTags = splitTags.filter((tag) => tag !== value);
 
       if (newTags.length > 0) {
         addQueryParam("tags", newTags.join(","));
