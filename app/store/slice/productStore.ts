@@ -18,7 +18,7 @@ export const useProductStore = create<ProductStore>((set) => ({
   filters: {
     category: null,
     brand: "",
-    tags: [],
+    tags: "",
     count: 0,
   },
   handleSetProducts: (products) => set({ products }),

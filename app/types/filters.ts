@@ -1,7 +1,7 @@
 // /types/product.ts
 export interface Filters {
   category?: number | null;
-  tags?: Array<string>;
+  tags?: string;
   count?: number;
   brand?: string;
 }

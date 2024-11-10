@@ -4,6 +4,8 @@ import { Filters } from "@/app/types";
 function createQueryStringFilter(filters: Filters): string {
   const params: URLSearchParams = new URLSearchParams();
 
+  const finalTags = filters.tags?.split(",") || [];
+
   if (filters.category) {
     params.append("category", filters.category.toString());
   }
@@ -13,7 +15,7 @@ function createQueryStringFilter(filters: Filters): string {
   }
 
   if (filters.tags) {
-    params.append("tags", filters.tags.join(","));
+    params.append("tags", finalTags.join(","));
   }
 
   if (filters.count) {
